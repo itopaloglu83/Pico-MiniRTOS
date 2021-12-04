@@ -37,3 +37,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} pico_stdlib FreeRTOS)
 
 # create map/bin/hex/uf2 file in addition to ELF.
 pico_add_extra_outputs(${CMAKE_PROJECT_NAME})
+
+# Use OpenOCD to burn the elf file.
+# openocd -f interface/picoprobe.cfg -f target/rp2040.cfg -c "program minirtos.elf verify reset exit"
